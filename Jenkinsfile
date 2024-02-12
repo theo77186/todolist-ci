@@ -25,6 +25,12 @@ pipeline {
             }
         }
 
+        stage("Test app") {
+            steps {
+                sh "npm run test -- --watchAll=false"
+            }
+        }
+
         stage("Audit packages") {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { // should be UNSTABLE on prod
