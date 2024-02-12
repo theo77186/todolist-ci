@@ -3,6 +3,7 @@ pipeline {
         registry = "theo77186/todolist"
         registryCredential = "docker-id"
         dockerImage = ""
+        PUBLIC_URL = "/"
     }
     agent any
     stages {
@@ -20,7 +21,7 @@ pipeline {
 
         stage("Build app") {
             steps {
-                sh "PUBLIC_URL=/ npm run build"
+                sh "npm run build"
             }
         }
 
