@@ -20,7 +20,7 @@ pipeline {
 
         stage("Build app") {
             steps {
-                sh "npm run build"
+                sh "PUBLIC_URL=/ npm run build"
             }
         }
 
