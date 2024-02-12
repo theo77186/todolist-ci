@@ -9,4 +9,4 @@ RUN apk add npm
 RUN npm install
 RUN PUBLIC_URL=/ npm run build
 
-COPY build /usr/local/apache2/htdocs
+RUN cp -R build/. /usr/local/apache2/htdocs
