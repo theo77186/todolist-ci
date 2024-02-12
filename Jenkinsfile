@@ -14,10 +14,8 @@ pipeline {
 
         stage("Building image") {
             steps {
-                dir ("app") {
-                    script {
-                        dockerImage = docker.build registry
-                    }
+                script {
+                    dockerImage = docker.build registry
                 }
             }
         }
