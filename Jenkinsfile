@@ -25,6 +25,14 @@ pipeline {
             }
         }
 
+        stage("Audit packages") {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { // should be UNSTABLE on prod
+                    sh "npm audit"
+                }
+            }
+        }
+
         stage("Building image") {
             steps {
                 script {
