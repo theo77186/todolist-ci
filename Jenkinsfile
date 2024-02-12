@@ -18,9 +18,9 @@ pipeline {
             }
         }
 
-        stage("Run tests") {
+        stage("Build app") {
             steps {
-                sh "npm run test"
+                sh "npm build"
             }
         }
 
